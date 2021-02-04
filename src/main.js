@@ -20,10 +20,10 @@ Vue.config.productionTip = false
 
 const store = new Vuex.Store({
   state: {
-  // urlClient : "http://localhost:8080/",
-   urlClient : "https://pixelmage-front.herokuapp.com/",
-   // socket : io("localhost:3001"),
-   socket : io("https://pixelmage-back.herokuapp.com"),
+   urlClient : "http://localhost:8080/",
+  // urlClient : "https://pixelmage-front.herokuapp.com/",
+   socket : io("localhost:3001"),
+ //  socket : io("https://pixelmage-back.herokuapp.com"),
     connected: false,
     categories : ["TOUTES","Disney","Célébrités"],
     images: [
@@ -32,7 +32,7 @@ const store = new Vuex.Store({
       { image: "mister_jack.jpg", reponse: "L'étrange Noël de Monsieur Jack", categorie: "Disney" },
       { image: "reine_des_neiges.jpg", reponse: "La Reine des Neiges", categorie: "Disney" },
       { image: "le_bossu_de_notre_dame.jpg", reponse: "Le Bossu de Notre-Dame", categorie: "Disney" },
-      { image: "malefique.jpg", reponse: "Maléfique", categorie: "Disney" },
+      { image: "malefique.jpg", reponse: "La Belle au Bois Dormant", categorie: "Disney" },
       { image: "raiponce.jpg", reponse: "Raiponce", categorie: "Disney" },
       { image: "peter_pan.jpg", reponse: "Peter Pan", categorie: "Disney" },
       { image: "bambi.jpg", reponse: "Bambi", categorie: "Disney" },

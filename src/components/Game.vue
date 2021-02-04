@@ -26,8 +26,8 @@ export default {
     return {
       myImageIndex: -1,
       myTimer: 0,
-      timeRound: 60,
-      timeFinalRound: 65,
+      timeRound: 5,
+      timeFinalRound: 7,
       response: "",
       room: "",
       drawGame: true,
