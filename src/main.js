@@ -17,9 +17,13 @@ import  io from "socket.io-client";
 
 Vue.config.productionTip = false
 
+
 const store = new Vuex.Store({
   state: {
-    socket : io("https://pixelmage-back.herokuapp.com"),
+   urlClient : "http://localhost:8080/",
+  // urlClient : "https://pixelmage-front.herokuapp.com/"
+    socket : io("localhost:3001"),
+   // socket : io("https://pixelmage-back.herokuapp.com"),
     connected: false,
     categories : ["TOUTES","Disney","Célébrités"],
     images: [
