@@ -186,6 +186,9 @@ export default {
     this.$store.state.socket.on("miseAJourPersonnes", (data) => {
       this.listePersonne = data;
       this.host = data.filter((e) => e.user == this.user)[0].host;
+      this.score = data.filter((e) => e.user == this.user)[0].score;
+      console.log("score : "+this.score);
+      console.log("personnes: "+this.listePersonne);
     });
 
     this.$store.state.socket.on("miseAJourScore", (data) => {
