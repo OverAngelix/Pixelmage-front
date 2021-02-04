@@ -13,22 +13,22 @@ import router from './router'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-import  io from "socket.io-client";
+import io from "socket.io-client";
 
 Vue.config.productionTip = false
 
 
 const store = new Vuex.Store({
   state: {
-   urlClient : "http://localhost:8080/",
-  // urlClient : "https://pixelmage-front.herokuapp.com/",
-   socket : io("localhost:3001"),
- //  socket : io("https://pixelmage-back.herokuapp.com"),
+    //urlClient : "http://localhost:8080/",
+    urlClient: "https://pixelmage-front.herokuapp.com/",
+    // socket : io("localhost:3001"),
+    socket: io("https://pixelmage-back.herokuapp.com"),
     connected: false,
-    categories : ["TOUTES","Disney","Célébrités"],
+    categories: ["TOUTES", "Disney", "Célébrités"],
     images: [
       { image: "roi_lion.jpg", reponse: "Le Roi Lion", categorie: "Disney" },
-      { image: "hercule.jpg", reponse: "Hercule", categorie: "Disney"},
+      { image: "hercule.jpg", reponse: "Hercule", categorie: "Disney" },
       { image: "mister_jack.jpg", reponse: "L'étrange Noël de Monsieur Jack", categorie: "Disney" },
       { image: "reine_des_neiges.jpg", reponse: "La Reine des Neiges", categorie: "Disney" },
       { image: "le_bossu_de_notre_dame.jpg", reponse: "Le Bossu de Notre-Dame", categorie: "Disney" },
@@ -38,10 +38,10 @@ const store = new Vuex.Store({
       { image: "bambi.jpg", reponse: "Bambi", categorie: "Disney" },
       { image: "101_dalmatiens.jpg", reponse: "101 dalmatiens", categorie: "Disney" },
       //{ image: "Capture.jpg", reponse: "OverAngelix & co", categorie: "Célébrités" },
-      { image: "gilbert_montagne.jpg", reponse: "Gilbert Montagné", categorie: "Célébrités"},
-      { image: "zidane.jpg", reponse: "Zinédine Zidane", categorie: "Célébrités"},
-      { image: "at0mium.jpg", reponse: "At0mium", categorie: "Célébrités"},
-      { image: "mcfly_et_carlito.png", reponse: "McFly et Carlito", categorie: "Célébrités"},
+      { image: "gilbert_montagne.jpg", reponse: "Gilbert Montagné", categorie: "Célébrités" },
+      { image: "zidane.jpg", reponse: "Zinédine Zidane", categorie: "Célébrités" },
+      { image: "at0mium.jpg", reponse: "At0mium", categorie: "Célébrités" },
+      { image: "mcfly_et_carlito.png", reponse: "McFly et Carlito", categorie: "Célébrités" },
     ],
   },
   mutations: {

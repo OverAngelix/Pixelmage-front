@@ -33,6 +33,7 @@ export default {
       drawGame: true,
     };
   },
+  props: ['host'],
   created() {
     this.room = this.$route.query.room;
   },
@@ -60,6 +61,7 @@ export default {
           imagessize: this.$store.state.images.length,
           images: this.$store.state.images,
           room: this.room,
+          host : this.host
         });
       }
     },

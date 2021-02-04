@@ -29,7 +29,7 @@
     </div>
     <div class="row pt-5 pl-3">
       <div class="col-md-9 bg-primary">
-        <Game />
+        <Game :host="host" />
       </div>
       <div class="col-md-3">
         <DarkTheme />
