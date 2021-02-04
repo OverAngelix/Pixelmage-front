@@ -13,7 +13,6 @@
     "bootstrap": "^4.6.0",
     "core-js": "^3.6.5",
     "jquery": "^3.5.1",
-    "pixelate": "0.0.5",
     "popper.js": "^1.16.1",
     "socket.io-client": "^3.1.0",
     "vue": "^2.6.11",
@@ -23,7 +22,6 @@
     "vue-socket.io": "^3.0.10",
     "vue2-perfect-scrollbar": "^1.5.0",
     "vuescroll": "^4.17.3",
-    "vuetify": "^2.4.3",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
