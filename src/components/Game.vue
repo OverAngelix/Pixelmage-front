@@ -44,8 +44,12 @@ export default {
         img.onload = function () {
           eightBit(document.getElementById("canvas"), img, intensite); //on va de 0 à 50
         };
-        img.src = require("../assets/images/" +
-          this.$store.state.images[this.myImageIndex].image);
+        const image = this.$store.state.images[this.myImageIndex].image;
+        if (image.startsWith("http")) {
+          img.src =  image
+        } else {
+          img.src = require("../assets/images/" + image);
+        }
       }
       if (
         this.myTimer >= this.timeRound &&
@@ -54,8 +58,12 @@ export default {
         img.onload = function () {
           eightBit(document.getElementById("canvas"), img, 50); //on va de 0 à 50
         };
-        img.src = require("../assets/images/" +
-          this.$store.state.images[this.myImageIndex].image);
+        const image = this.$store.state.images[this.myImageIndex].image;
+        if (image.startsWith("http")) {
+          img.src =  image
+        } else {
+          img.src = require("../assets/images/" + image);
+        }
       } else if (this.myTimer >= this.timeRound) {
         this.$store.state.socket.emit("newRound", {
           imagessize: this.$store.state.images.length,
