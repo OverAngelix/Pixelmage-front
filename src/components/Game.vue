@@ -97,6 +97,7 @@ export default {
       if (this.room !== undefined) {
         this.$store.state.socket.emit("reponseImage", {
           reponseImage: this.$store.state.images[this.myImageIndex].reponse,
+           synonyms: this.$store.state.images[this.myImageIndex].synonyms || [],
           room: this.room,
         });
       }
