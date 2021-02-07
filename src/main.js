@@ -73,6 +73,8 @@ query ($userName: String) {
             romaji
             english
           }
+ format
+ popularity
           synonyms
         }
       }
