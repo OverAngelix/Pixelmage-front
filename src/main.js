@@ -84,7 +84,7 @@ query ($userName: String) {
 
 // Define our query variables and values that will be used in the query request
 var variables = {
-  userName: "Theya",
+  userName: "TheWindSpring",
 };
 
 // Define the config we'll need for our Api request
@@ -114,14 +114,28 @@ function handleResponse(response) {
 }
 
 function handleData(data) {
-  const completedEntries = data.data.anime.lists[0].entries;
-  completedEntries.forEach((e) => {
-    e.media.synonyms.push(e.media.title.english)
-    store.state.images.push({
-      image: e.media.coverImage.extraLarge,
-      reponse: e.media.title.romaji,
-      synonyms: e.media.synonyms,
-      categorie: "Anime",
+  const minPopularity = 0;
+  /*
+  EASY: 80000 - 100000
+  NORMAL: 40000 - 60000
+  HARD: 0  
+  */
+  data.data.anime.lists.forEach((list) => {
+    const entries = list.entries;
+    entries.forEach((e) => {
+      if (e.media.format != null && e.media.popularity >= minPopularity) {
+        const format = e.media.format.toLowerCase();
+        if (format != "music" && format != "special" && format != "ova") {
+          e.media.synonyms.push(e.media.title.english);
+          store.state.images.push({
+            image: e.media.coverImage.extraLarge,
+            reponse: e.media.title.romaji,
+            synonyms: e.media.synonyms,
+            categorie: "Anime",
+            popularity: e.media.popularity,
+          });
+        }
+      }
     });
   });
 }
