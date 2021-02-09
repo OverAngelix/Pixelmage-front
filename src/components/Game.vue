@@ -18,11 +18,11 @@
       <div>
         <table
           class="table table-bordered bg-light mt-4" style="text-align:center;"
-          v-for="(personne, index) in listePersonnes"
-          :key="index"
+          
         >
-
-          <tr><td>{{index+1}}</td><td>{{ personne.user }}</td> <td>{{ personne.score }}</td>
+          <tr><td>Position</td><td>Pseudo</td><td>Score</td></tr>
+          <tr v-for="(personne, index) in listePersonnes"
+          :key="index"><td>{{index+1}}</td><td>{{ personne.user }}</td> <td>{{ personne.score }}</td>
           </tr>
   
         </table>
