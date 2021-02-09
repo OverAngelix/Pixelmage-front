@@ -25,7 +25,7 @@ const store = new Vuex.Store({
     //socket : io("localhost:3001"),
     socket: io("https://pixelmage-back.herokuapp.com"),
     connected: false,
-    categories: ["TOUTES", "Disney", "Célébrités", "Anime"],
+    categories: ["TOUTES", "Disney", "Célébrités", "Anime", "Pokémon"],
     images: [
       { image: "roi_lion.jpg", reponse: "Le Roi Lion", categorie: "Disney" },
       { image: "hercule.jpg", reponse: "Hercule", categorie: "Disney" },
@@ -48,6 +48,7 @@ const store = new Vuex.Store({
       { image: "jul.jpg", reponse: "JUL", categorie: "Célébrités" },
       { image: "vianney.jpg", reponse: "Vianney", categorie: "Célébrités" },
       { image: "nagui.jpg", reponse: "Nagui", categorie: "Célébrités" },
+      { image: "mohamed_henni.jpg", reponse: "Mohamed Henni", categorie: "Célébrités" }
     ],
   },
   mutations: {
@@ -57,6 +58,19 @@ const store = new Vuex.Store({
   }
 })
 
+/* CATEGORIE POKEMON */
+
+const pokemons = require('./assets/pokemons.json')
+pokemons.forEach(e => {
+  store.state.images.push({
+    image: e.image,
+    reponse: e.name,
+    synonyms: [e.aliase],
+    categorie: "Pokémon"
+  });
+});
+
+/* CATEGORIE ANIME */
 
 var query = `
 query ($userName: String) {
