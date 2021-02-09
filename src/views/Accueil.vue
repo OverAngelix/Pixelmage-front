@@ -141,7 +141,8 @@ export default {
           maxRound: this.maxRoundSelected,
           room: this.room,
         });
-        this.partieCommencee = true;
+        //this.partieCommencee = true;
+        this.$store.state.socket.emit("majPartieCommencee1",{room:this.room});
       }
     },
 
@@ -239,6 +240,11 @@ export default {
         this.dejaRepondu = true;
       }
     });
+
+    this.$store.state.socket.on("majPartieCommencee2",()=>{
+      this.partieCommencee=true;
+      console.log("maj:",this.partieCommencee);
+    })
   },
 };
 </script>
