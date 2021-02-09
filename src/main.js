@@ -22,7 +22,7 @@ const store = new Vuex.Store({
   state: {
     //urlClient : "http://localhost:8080/",
     urlClient: "https://pixelmage-front.herokuapp.com/",
-     //socket : io("localhost:3001"),
+    //socket : io("localhost:3001"),
     socket: io("https://pixelmage-back.herokuapp.com"),
     connected: false,
     categories: ["TOUTES", "Disney", "Célébrités", "Anime"],
@@ -116,7 +116,7 @@ function handleResponse(response) {
 }
 
 function handleData(data) {
-  const minPopularity = 0;
+  const minPopularity = 150000;
   /*
   EASY: 80000 - 100000
   NORMAL: 40000 - 60000

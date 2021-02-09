@@ -1,11 +1,41 @@
 <template>
   <div>
-    Catégorie <select v-if="host && partieCommencee != true" v-model="categorieSelected" class ="custom-select col-md-1">
-      <option v-for="categorie in categories" :value="categorie" :key="categorie.id">
-        {{ categorie }}
-      </option>
-    </select>
-    <div class="row justify-content-center">
+    <div class="row">
+      <div v-if="host && partieCommencee != true" class="col-2 pl-4 pt-1" style="color:white;">
+        Catégorie
+        <select
+          
+          v-model="categorieSelected"
+          class="custom-select col-md-12"
+        >
+          <option
+            v-for="categorie in categories"
+            :value="categorie"
+            :key="categorie.id"
+          >
+            {{ categorie }}
+          </option>
+        </select>
+        Round max
+        <select
+          v-if="host && partieCommencee != true"
+          v-model="maxRoundSelected"
+          class="custom-select col-md-12"
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <div class="col-10">
+      <div class="row justify-content-md-center">
       <ul
         class="listePersonnes col-1"
         v-for="(personne, index) in listePersonne"
@@ -15,17 +45,18 @@
           {{ personne.user }} <br />
           {{ personne.score }}
           <div v-if="host && partieCommencee != true">
-            <button type="button" @click="lancerPartie" class="btn btn-danger">
-              Commencer !
+            <button type="button" @click="lancerPartie" class="btn btn-danger col-12" style="font-size:12px;">
+              Commencer
             </button>
           </div>
-          
         </li>
         <li class="list-group-item" v-else>
           {{ personne.user }} <br />
           {{ personne.score }}
         </li>
       </ul>
+      </div>
+      </div>
     </div>
     <div class="row pt-5 pl-3">
       <div class="col-md-9 bg-primary">
@@ -46,11 +77,13 @@
             </p>
           </div>
         </perfect-scrollbar>
-        <form @submit.prevent="sendMessage">
-          <div class="gorm-group">
+        <form @submit.prevent="sendMessage" class="row">
+          <div class="gorm-group col-md-8 p-0">
             <input type="text" v-model="message" class="form-control" />
           </div>
-          <button type="submit" class="btn btn-success">Envoyer</button>
+          <button type="submit" class="btn btn-success col-md-4">
+            Envoyer
+          </button>
         </form>
       </div>
     </div>
@@ -78,6 +111,7 @@ export default {
       partieCommencee: false,
       categorieSelected: "TOUTES",
       categories: [],
+      maxRoundSelected: 10,
     };
   },
 
@@ -98,9 +132,13 @@ export default {
     lancerPartie() {
       if (this.room !== undefined) {
         this.$store.state.socket.emit("lancementChrono", {
-          categorie : this.categorieSelected,
+          categorie: this.categorieSelected,
           imagessize: this.$store.state.images.length,
           images: this.$store.state.images,
+          room: this.room,
+        });
+        this.$store.state.socket.emit("envoiMaxRound", {
+          maxRound: this.maxRoundSelected,
           room: this.room,
         });
         this.partieCommencee = true;
@@ -187,8 +225,9 @@ export default {
       this.listePersonne = data;
       this.host = data.filter((e) => e.user == this.user)[0].host;
       this.score = data.filter((e) => e.user == this.user)[0].score;
-      console.log("score : "+this.score);
-      console.log("personnes: "+this.listePersonne);
+      this.dejaRepondu = data.filter((e) => e.user == this.user)[0].dejaRepondu;
+      console.log("score : " + this.score);
+      console.log("personnes: ", this.listePersonne);
     });
 
     this.$store.state.socket.on("miseAJourScore", (data) => {

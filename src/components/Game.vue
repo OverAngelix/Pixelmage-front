@@ -1,26 +1,51 @@
 <template>
-  <div>
-    <div v-if="drawGame && myTimer>=1"
+  <div >
+    <div
+      v-if="drawGame && myTimer >= 1"
       class="offset-md-2 col-md-8 offset-md-2 bg-warning mt-3 mb-3 text-center"
     >
       {{ response }} {{ myTimer }}
     </div>
-    <div v-if="drawGame && myTimer>=1" class="offset-md-2 col-md-8 offset-md-2 pl-0 pr-0">
-      <div class="row justify-content-md-center">
-        <canvas id="canvas" class="img-fluid" />
+    <div
+      v-if="drawGame && myTimer >= 1"
+      class="offset-md-2 col-md-8 offset-md-2 pl-0 pr-0"
+    >
+      <div class="row justify-content-md-center" >
+        <canvas id="canvas" class="img-fluid"/>
       </div>
     </div>
     <div v-else class="offset-md-2 col-md-8 offset-md-2 pl-0 pr-0">
-      <div class="row justify-content-md-center">AFFICHER LEADERBOARD</div>
+      <div>
+        <table
+          class="table table-bordered bg-light mt-4" style="text-align:center;"
+          v-for="(personne, index) in listePersonnes"
+          :key="index"
+        >
+
+          <tr><td>{{index+1}}</td><td>{{ personne.user }}</td> <td>{{ personne.score }}</td>
+          </tr>
+  
+        </table>
+      </div>
     </div>
   </div>
-  
 </template>
 
 
 
 <script>
 var eightBit = require("8bit");
+
+function compare(a, b) {
+  if (a.score < b.score) {
+    return 1;
+  }
+  if (a.score > b.score) {
+    return -1;
+  }
+  return 0;
+}
+
 export default {
   data() {
     return {
@@ -31,9 +56,10 @@ export default {
       response: "",
       room: "",
       drawGame: true,
+      listePersonnes: [],
     };
   },
-  props: ['host'],
+  props: ["host"],
   created() {
     this.room = this.$route.query.room;
   },
@@ -46,7 +72,7 @@ export default {
         };
         const image = this.$store.state.images[this.myImageIndex].image;
         if (image.startsWith("http")) {
-          img.src =  image
+          img.src = image;
         } else {
           img.src = require("../assets/images/" + image);
         }
@@ -60,7 +86,7 @@ export default {
         };
         const image = this.$store.state.images[this.myImageIndex].image;
         if (image.startsWith("http")) {
-          img.src =  image
+          img.src = image;
         } else {
           img.src = require("../assets/images/" + image);
         }
@@ -69,7 +95,7 @@ export default {
           imagessize: this.$store.state.images.length,
           images: this.$store.state.images,
           room: this.room,
-          host : this.host
+          host: this.host,
         });
       }
     },
@@ -97,7 +123,7 @@ export default {
       if (this.room !== undefined) {
         this.$store.state.socket.emit("reponseImage", {
           reponseImage: this.$store.state.images[this.myImageIndex].reponse,
-           synonyms: this.$store.state.images[this.myImageIndex].synonyms || [],
+          synonyms: this.$store.state.images[this.myImageIndex].synonyms || [],
           room: this.room,
         });
       }
@@ -120,16 +146,21 @@ export default {
       this.drawGame = false;
     });
 
-     this.$store.state.socket.on("partyBegin", () => {
+    this.$store.state.socket.on("partyBegin", () => {
       this.myTimer = 0;
       this.response = "";
-       this.drawGame = true;
+      this.drawGame = true;
+    });
+
+    this.$store.state.socket.on("afficherLeaderboard", (data) => {
+      this.listePersonnes = data;
+      this.listePersonnes.sort(compare);
     });
   },
 
   watch: {
     myTimer(newTimer) {
-      this.pixelateImage(newTimer / 10 + 0.2);
+      this.pixelateImage(newTimer / 8 + 0.5);
     },
   },
 };
