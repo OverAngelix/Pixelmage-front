@@ -10,7 +10,7 @@
         "image": "https://www.pokepedia.fr/images/3/36/Abra-RFVF.png"
     },
     {
-        "name": "A%C3%A9romite",
+        "name": "Aéromite",
         "aliase": "Venomoth",
         "image": "https://www.pokepedia.fr/images/0/0f/A%C3%A9romite-RFVF.png"
     },
@@ -105,7 +105,7 @@
         "image": "https://www.pokepedia.fr/images/c/c7/Chenipan-RFVF.png"
     },
     {
-        "name": "Ch%C3%A9tiflor",
+        "name": "Chétiflor",
         "aliase": "Bellsprout",
         "image": "https://www.pokepedia.fr/images/f/f9/Ch%C3%A9tiflor-RFVF.png"
     },
@@ -165,17 +165,17 @@
         "image": "https://www.pokepedia.fr/images/8/8d/Ectoplasma-RFVF.png"
     },
     {
-        "name": "%C3%89lecthor",
+        "name": "Électhor",
         "aliase": "Zapdos",
         "image": "https://www.pokepedia.fr/images/8/81/%C3%89lecthor-RFVF.png"
     },
     {
-        "name": "%C3%89lectrode",
+        "name": "Électrode",
         "aliase": "Electrode",
         "image": "https://www.pokepedia.fr/images/0/03/%C3%89lectrode-RFVF.png"
     },
     {
-        "name": "%C3%89lektek",
+        "name": "Élektek",
         "aliase": "Electabuzz",
         "image": "https://www.pokepedia.fr/images/1/18/%C3%89lektek-RFVF.png"
     },
@@ -185,7 +185,7 @@
         "image": "https://www.pokepedia.fr/images/4/41/Empiflor-RFVF.png"
     },
     {
-        "name": "%C3%89voli",
+        "name": "Évoli",
         "aliase": "Eevee",
         "image": "https://www.pokepedia.fr/images/8/8b/%C3%89voli-RFVF.png"
     },
@@ -200,7 +200,7 @@
         "image": "https://www.pokepedia.fr/images/9/9f/Fantominus-RFVF.png"
     },
     {
-        "name": "F%C3%A9rosinge",
+        "name": "Férosinge",
         "aliase": "Mankey",
         "image": "https://www.pokepedia.fr/images/8/8e/F%C3%A9rosinge-RFVF.png"
     },
@@ -265,7 +265,7 @@
         "image": "https://www.pokepedia.fr/images/3/3a/Hypnomade-RFVF.png"
     },
     {
-        "name": "Hypoc%C3%A9an",
+        "name": "Hypocéan",
         "aliase": "Seadra",
         "image": "https://www.pokepedia.fr/images/f/fc/Hypoc%C3%A9an-RFVF.png"
     },
@@ -275,7 +275,7 @@
         "image": "https://www.pokepedia.fr/images/3/3e/Hypotrempe-RFVF.png"
     },
     {
-        "name": "Ins%C3%A9cateur",
+        "name": "Insécateur",
         "aliase": "Scyther",
         "image": "https://www.pokepedia.fr/images/a/a4/Ins%C3%A9cateur-RFVF.png"
     },
@@ -330,7 +330,7 @@
         "image": "https://www.pokepedia.fr/images/9/96/Leveinard-RFVF.png"
     },
     {
-        "name": "L%C3%A9viator",
+        "name": "Léviator",
         "aliase": "Gyarados",
         "image": "https://www.pokepedia.fr/images/f/f2/L%C3%A9viator-RFVF.png"
     },
@@ -375,27 +375,27 @@
         "image": "https://www.pokepedia.fr/images/8/8d/Magmar-RFVF.png"
     },
     {
-        "name": "Magn%C3%A9ti",
+        "name": "Magnéti",
         "aliase": "Magnemite",
         "image": "https://www.pokepedia.fr/images/b/b9/Magn%C3%A9ti-RFVF.png"
     },
     {
-        "name": "Magn%C3%A9ton",
+        "name": "Magnéton",
         "aliase": "Magneton",
         "image": "https://www.pokepedia.fr/images/3/36/Magn%C3%A9ton-RFVF.png"
     },
     {
-        "name": "M%C3%A9lodelfe",
+        "name": "Mélodelfe",
         "aliase": "Clefable",
         "image": "https://www.pokepedia.fr/images/3/3f/M%C3%A9lodelfe-RFVF.png"
     },
     {
-        "name": "M%C3%A9lof%C3%A9e",
+        "name": "Mélofée",
         "aliase": "Clefairy",
         "image": "https://www.pokepedia.fr/images/4/4d/M%C3%A9lof%C3%A9e-RFVF.png"
     },
     {
-        "name": "M%C3%A9tamorph",
+        "name": "Métamorph",
         "aliase": "Ditto",
         "image": "https://www.pokepedia.fr/images/e/e3/M%C3%A9tamorph-RFVF.png"
     },
@@ -440,12 +440,12 @@
         "image": "https://www.pokepedia.fr/images/7/76/Nidoqueen-RFVF.png"
     },
     {
-        "name": "Nidoran%E2%99%80",
+        "name": "Nidoran♀",
         "aliase": "Nidoran♀",
         "image": "https://www.pokepedia.fr/images/c/ca/Nidoran%E2%99%80-RFVF.png"
     },
     {
-        "name": "Nidoran%E2%99%82",
+        "name": "Nidoran♂",
         "aliase": "Nidoran♂",
         "image": "https://www.pokepedia.fr/images/8/8e/Nidoran%E2%99%82-RFVF.png"
     },
@@ -535,7 +535,7 @@
         "image": "https://www.pokepedia.fr/images/e/e7/Pikachu-RFVF.png"
     },
     {
-        "name": "Poissir%C3%A8ne",
+        "name": "Poissirène",
         "aliase": "Goldeen",
         "image": "https://www.pokepedia.fr/images/1/1f/Poissir%C3%A8ne-RFVF.png"
     },
@@ -560,7 +560,7 @@
         "image": "https://www.pokepedia.fr/images/4/44/Psykokwak-RFVF.png"
     },
     {
-        "name": "Pt%C3%A9ra",
+        "name": "Ptéra",
         "aliase": "Aerodactyl",
         "image": "https://www.pokepedia.fr/images/3/34/Pt%C3%A9ra-RFVF.png"
     },
@@ -620,7 +620,7 @@
         "image": "https://www.pokepedia.fr/images/a/a1/Rhinocorne-RFVF.png"
     },
     {
-        "name": "Rhinof%C3%A9ros",
+        "name": "Rhinoféros",
         "aliase": "Rhydon",
         "image": "https://www.pokepedia.fr/images/8/80/Rhinof%C3%A9ros-RFVF.png"
     },
@@ -660,7 +660,7 @@
         "image": "https://www.pokepedia.fr/images/a/a1/Sablaireau-RFVF.png"
     },
     {
-        "name": "Salam%C3%A8che",
+        "name": "Salamèche",
         "aliase": "Charmander",
         "image": "https://www.pokepedia.fr/images/8/89/Salam%C3%A8che-RFVF.png"
     },
@@ -740,7 +740,7 @@
         "image": "https://www.pokepedia.fr/images/1/1c/Tentacruel-RFVF.png"
     },
     {
-        "name": "T%C3%AAtarte",
+        "name": "Têtarte",
         "aliase": "Poliwhirl",
         "image": "https://www.pokepedia.fr/images/5/54/T%C3%AAtarte-RFVF.png"
     },
