@@ -70,19 +70,22 @@ export default {
         img.onload = function () {
           eightBit(document.getElementById("canvas"), img, intensite); //on va de 0 à 50
         };
+        //console.log(intensite)
         const image = this.$store.state.images[this.myImageIndex].image;
         if (image.startsWith("http")) {
           img.src = image;
+          img.style="100px";
         } else {
           img.src = require("../assets/images/" + image);
         }
+        
       }
       if (
         this.myTimer >= this.timeRound &&
         this.myTimer < this.timeFinalRound
       ) {
         img.onload = function () {
-          eightBit(document.getElementById("canvas"), img, 50); //on va de 0 à 50
+          eightBit(document.getElementById("canvas"), img, 100); //on va de 0 à 50
         };
         const image = this.$store.state.images[this.myImageIndex].image;
         if (image.startsWith("http")) {
