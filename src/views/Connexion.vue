@@ -48,7 +48,6 @@
   </div>
 </template>
 
-
 <script>
 import DarkTheme from "../components/DarkTheme.vue";
 export default {
@@ -79,6 +78,10 @@ export default {
   },
 
   mounted() {
+    let urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("room")) {
+      this.room = urlParams.get("room");
+    }
     if (localStorage.username) {
       this.user = localStorage.username;
     }

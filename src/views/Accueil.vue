@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="row">
-      <div v-if="host && partieCommencee != true" class="col-2 pl-4 pt-1" style="color:white;">
+      <div
+        v-if="host && partieCommencee != true"
+        class="col-2 pl-4 pt-1"
+        style="color:white;"
+      >
         Catégorie
-        <select
-          
-          v-model="categorieSelected"
-          class="custom-select col-md-12"
-        >
+        <select v-model="categorieSelected" class="custom-select col-md-12">
           <option
             v-for="categorie in categories"
             :value="categorie"
@@ -35,27 +35,32 @@
         </select>
       </div>
       <div class="col-10">
-      <div class="row justify-content-md-center">
-      <ul
-        class="listePersonnes col-1"
-        v-for="(personne, index) in listePersonne"
-        :key="index"
-      >
-        <li class="list-group-item active" v-if="personne.user == user">
-          {{ personne.user }} <br />
-          {{ personne.score }}
-          <div v-if="host && partieCommencee != true">
-            <button type="button" @click="lancerPartie" class="btn btn-danger col-12" style="font-size:12px;">
-              Commencer
-            </button>
-          </div>
-        </li>
-        <li class="list-group-item" v-else>
-          {{ personne.user }} <br />
-          {{ personne.score }}
-        </li>
-      </ul>
-      </div>
+        <div class="row justify-content-md-center">
+          <ul
+            class="listePersonnes col-1"
+            v-for="(personne, index) in listePersonne"
+            :key="index"
+          >
+            <li class="list-group-item active" v-if="personne.user == user">
+              {{ personne.user }} <br />
+              {{ personne.score }}
+              <div v-if="host && partieCommencee != true">
+                <button
+                  type="button"
+                  @click="lancerPartie"
+                  class="btn btn-danger col-12"
+                  style="font-size:12px;"
+                >
+                  Commencer
+                </button>
+              </div>
+            </li>
+            <li class="list-group-item" v-else>
+              {{ personne.user }} <br />
+              {{ personne.score }}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="row pt-5 pl-3">
@@ -120,7 +125,8 @@ export default {
     this.categories = this.$store.state.categories;
     this.room = this.$route.query.room;
     if (this.$store.state.connected == false) {
-      this.$router.push("/connexion");
+      const params = window.location.search;
+      this.$router.push("/connexion" + params);
     }
   },
 
@@ -142,7 +148,9 @@ export default {
           room: this.room,
         });
         //this.partieCommencee = true;
-        this.$store.state.socket.emit("majPartieCommencee1",{room:this.room});
+        this.$store.state.socket.emit("majPartieCommencee1", {
+          room: this.room,
+        });
       }
     },
 
@@ -241,15 +249,15 @@ export default {
       }
     });
 
-    this.$store.state.socket.on("majPartieCommencee2",()=>{
-      this.partieCommencee=true;
-      console.log("maj:",this.partieCommencee);
-    })
+    this.$store.state.socket.on("majPartieCommencee2", () => {
+      this.partieCommencee = true;
+      console.log("maj:", this.partieCommencee);
+    });
   },
 };
 </script>
 
-<style >
+<style>
 .ps {
   height: 700px;
 }
