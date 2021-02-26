@@ -4,7 +4,7 @@
       <div
         v-if="host && partieCommencee != true"
         class="col-2 pl-4 pt-1"
-        style="color:white;"
+        style="color: white"
       >
         Catégorie
         <select v-model="categorieSelected" class="custom-select col-md-12">
@@ -49,7 +49,7 @@
                   type="button"
                   @click="lancerPartie"
                   class="btn btn-danger col-12"
-                  style="font-size:12px;"
+                  style="font-size: 12px"
                 >
                   Commencer
                 </button>
@@ -134,6 +134,11 @@ export default {
     window.removeEventListener("beforeunload", this.beforeunloadFn);
   },
 
+  beforeRouteLeave(to, from, next) {
+    this.beforeunloadFn();
+    next();
+  },
+
   methods: {
     lancerPartie() {
       if (this.room !== undefined) {
@@ -203,10 +208,6 @@ export default {
       this.scrollToEnd();
     });
 
-    this.$store.state.socket.on("messageRoom", (data) => {
-      console.log(data);
-    });
-
     this.$store.state.socket.on("partyFinish", () => {
       this.partieCommencee = false;
     });
@@ -235,8 +236,6 @@ export default {
       this.host = data.filter((e) => e.user == this.user)[0].host;
       this.score = data.filter((e) => e.user == this.user)[0].score;
       this.dejaRepondu = data.filter((e) => e.user == this.user)[0].dejaRepondu;
-      console.log("score : " + this.score);
-      console.log("personnes: ", this.listePersonne);
     });
 
     this.$store.state.socket.on("miseAJourScore", (data) => {
@@ -251,7 +250,6 @@ export default {
 
     this.$store.state.socket.on("majPartieCommencee2", () => {
       this.partieCommencee = true;
-      console.log("maj:", this.partieCommencee);
     });
   },
 };

@@ -19,10 +19,10 @@ Vue.config.productionTip = false;
 
 const store = new Vuex.Store({
   state: {
-    //urlClient: "http://localhost:8080/",
-    urlClient: "https://pixelmage-front.herokuapp.com/",
-    //socket: io("localhost:3001"),
-    socket: io("https://pixelmage-back.herokuapp.com"),
+    urlClient: "http://localhost:8080/",
+/*     urlClient: "https://pixelmage-front.herokuapp.com/",
+ */    socket: io("localhost:3001"),
+    /*     socket: io("https://pixelmage-back.herokuapp.com"),*/
     connected: false,
     categories: ["TOUTES", "Disney", "Célébrités", "Anime", "Pokémon"],
     images: [
