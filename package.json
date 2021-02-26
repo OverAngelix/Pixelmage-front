@@ -9,7 +9,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "8bit": "^1.0.1",
     "bootstrap": "^4.6.0",
     "core-js": "^3.6.5",
     "jquery": "^3.5.1",

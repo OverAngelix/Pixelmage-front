@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <div
       v-if="drawGame && myTimer >= 1"
       class="offset-md-2 col-md-8 offset-md-2 bg-warning mt-3 mb-3 text-center"
@@ -10,31 +10,69 @@
       v-if="drawGame && myTimer >= 1"
       class="offset-md-2 col-md-8 offset-md-2 pl-0 pr-0"
     >
-      <div class="row justify-content-md-center" >
-        <canvas id="canvas" class="img-fluid"/>
+      <div class="row justify-content-md-center">
+        <canvas id="canvas" class="img-fluid" />       
       </div>
     </div>
     <div v-else class="offset-md-2 col-md-8 offset-md-2 pl-0 pr-0">
       <div>
         <table
-          class="table table-bordered bg-light mt-4" style="text-align:center;"
-          
+          class="table table-bordered bg-light mt-4"
+          style="text-align: center"
         >
-          <tr><td>Position</td><td>Pseudo</td><td>Score</td></tr>
-          <tr v-for="(personne, index) in listePersonnes"
-          :key="index"><td>{{index+1}}</td><td>{{ personne.user }}</td> <td>{{ personne.score }}</td>
+          <tr>
+            <td>Position</td>
+            <td>Pseudo</td>
+            <td>Score</td>
           </tr>
-  
+          <tr v-for="(personne, index) in listePersonnes" :key="index">
+            <td>{{ index + 1 }}</td>
+            <td>{{ personne.user }}</td>
+            <td>{{ personne.score }}</td>
+          </tr>
         </table>
       </div>
     </div>
+    <canvas hidden id="canvasInvisible" class="img-fluid" />
   </div>
 </template>
 
 
 
 <script>
-var eightBit = require("8bit");
+function eight(image, scale) {
+  scale *= 0.01;
+
+  var canvas2 = document.getElementById("canvasInvisible");
+  var canvas = document.getElementById("canvas");
+  canvas.width = image.width;
+  canvas.height = image.height;
+  canvas2.width = image.width;
+  canvas2.height = image.height;
+  
+  var scaledW = canvas.width * scale;
+  var scaledH = canvas.height * scale;
+
+  var ctx = canvas.getContext("2d");
+  var ctx2 = canvas2.getContext("2d");
+  ctx.mozImageSmoothingEnabled = false;
+  ctx.webkitImageSmoothingEnabled = false;
+  ctx.imageSmoothingEnabled = false;
+  ctx2.clearRect(0, 0, scaledW, scaledH);
+    ctx.clearRect(0, 0, scaledW, scaledH);
+  ctx2.drawImage(image, 0, 0, scaledW, scaledH);
+  ctx.drawImage(
+    canvas2,
+    0,
+    0,
+    scaledW,
+    scaledH,
+    0,
+    0,
+    image.width,
+    image.height
+  );
+}
 
 function compare(a, b) {
   if (a.score < b.score) {
@@ -64,28 +102,26 @@ export default {
     this.room = this.$route.query.room;
   },
   methods: {
-    pixelateImage(intensite) {
+    pixelateImage(intesite) {
       var img = new Image();
       if (this.myTimer < this.timeRound) {
         img.onload = function () {
-          eightBit(document.getElementById("canvas"), img, intensite); //on va de 0 à 50
+          eight(img, intesite);
         };
-        //console.log(intensite)
         const image = this.$store.state.images[this.myImageIndex].image;
         if (image.startsWith("http")) {
           img.src = image;
-          img.style="100px";
+          img.style.width = "100px";
         } else {
           img.src = require("../assets/images/" + image);
         }
-        
       }
       if (
         this.myTimer >= this.timeRound &&
         this.myTimer < this.timeFinalRound
       ) {
         img.onload = function () {
-          eightBit(document.getElementById("canvas"), img, 100); //on va de 0 à 50
+          eight(img, 50);
         };
         const image = this.$store.state.images[this.myImageIndex].image;
         if (image.startsWith("http")) {
