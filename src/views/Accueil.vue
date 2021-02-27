@@ -34,6 +34,9 @@
           <option value="10">10</option>
         </select>
       </div>
+      <div class="col-2 pl-4 pt-1" style="color: white" v-if="partieCommencee != false">
+        categorie : {{ categorieSelected }}
+      </div>
       <div class="col-10">
         <div class="row justify-content-md-center">
           <ul
@@ -152,9 +155,9 @@ export default {
           maxRound: this.maxRoundSelected,
           room: this.room,
         });
-        //this.partieCommencee = true;
         this.$store.state.socket.emit("majPartieCommencee1", {
           room: this.room,
+          categorie: this.categorieSelected,
         });
       }
     },
@@ -248,8 +251,9 @@ export default {
       }
     });
 
-    this.$store.state.socket.on("majPartieCommencee2", () => {
+    this.$store.state.socket.on("majPartieCommencee2", (data) => {
       this.partieCommencee = true;
+      this.categorieSelected = data.categorie;
     });
   },
 };

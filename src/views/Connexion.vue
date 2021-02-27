@@ -30,6 +30,7 @@
               <tr>
                 <td>Salon</td>
                 <td>Joueurs</td>
+                <td>Catégories</td>
               </tr>
               <tbody
                 v-for="(informations, index) in informationsSalles"
